@@ -9,11 +9,7 @@ class AvataarPage extends StatefulWidget {
 class _AvataarPageState extends State<AvataarPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Webview'),
-      ),
-      body: Column(
+    return  Column(
           children: <Widget>[
             Container(
               child: Align(
@@ -22,7 +18,7 @@ class _AvataarPageState extends State<AvataarPage> {
             ),
             )
           ],
-        ),
+        
     );
   }
 }

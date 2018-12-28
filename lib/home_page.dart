@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_avataar/avataar_page.dart';
+import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   Map<dynamic, String> currentSelected = {
-    "avatar_style":"Circle",
+    "avatar_style": "Circle",
     "top": "ShortHairShaggyMullet",
     "accessories": "Kurt",
     "hair_color": "BrownDark",
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build called');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -84,30 +86,28 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _showModalBottomSheet(BuildContext context, String tabSelected) {
-
-    List<String> gridData = ["assets/coffee.jpeg","assets/girl.jpg","assets/coffee.jpeg","assets/girl.jpg",
-    "assets/coffee.jpeg","assets/girl.jpg","assets/coffee.jpeg","assets/girl.jpg",
-    "assets/coffee.jpeg","assets/girl.jpg","assets/coffee.jpeg","assets/girl.jpg"];
+  void _showModalBottomSheet(BuildContext context, String tabSelected) {
+    List<String> gridData = [
+      "assets/coffee.jpeg",
+      "assets/girl.jpg",
+      "assets/coffee.jpeg",
+      "assets/girl.jpg",
+      "assets/coffee.jpeg",
+      "assets/girl.jpg",
+      "assets/coffee.jpeg",
+      "assets/girl.jpg",
+      "assets/coffee.jpeg",
+      "assets/girl.jpg",
+      "assets/coffee.jpeg",
+      "assets/girl.jpg"
+    ];
 
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return Container(
-            height: 300.0,
-            child: new GridView.count(
-              crossAxisCount: 3,
-                children: gridData.map((String image) {
-                  return new FlatButton(
-                      onPressed: (){
-
-                      },
-                      child: new GridTile(
-                        child: new Image.asset(image,fit: BoxFit.fill,),
-                      )
-                  );
-                }).toList()),
-          );
+          return CustomGridBottomSheet(gridData);
         });
   }
+
+  
 }

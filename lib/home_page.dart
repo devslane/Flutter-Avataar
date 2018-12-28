@@ -265,13 +265,15 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return CustomGridBottomSheet(gridData: gridData,hello: printvalue,);
+          return CustomGridBottomSheet(gridData: gridData,currentSelected: changeCurrentSelected,);
         });
   }
 
 
-  void printvalue(dynamic value){
+  void changeCurrentSelected(dynamic value){
     print(value);
+    currentSelected["avatar_style"]=value;
+    print(currentSelected);
   }
   
 }

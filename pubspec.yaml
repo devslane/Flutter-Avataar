@@ -42,6 +42,9 @@ flutter:
   assets:
         - assets/girl.jpg
         - assets/coffee.jpeg
+        - assets/dbz.jpeg
+        - assets/goku.jpeg
+        - assets/vegeta.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

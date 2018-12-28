@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_avataar/avataar_webview.dart';
 import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
-import 'package:flutter_avataar/avataar_webview.dart';
+import 'package:flutter_avataar/enums.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -285,7 +285,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void changeCurrentSelected(dynamic value){
-    print(value);
+    print(AvatarStyle.circle.toString().split('.')[1]);
     currentSelected["avatar_style"]=value;
     print(currentSelected);
   }

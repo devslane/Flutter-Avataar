@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_avataar/custom_check_box.dart';
 
 class CustomGridBottomSheet extends StatefulWidget {
-  CustomGridBottomSheet(this.gridData);
+  CustomGridBottomSheet({this.gridData, this.hello});
+
   final List<String> gridData;
+  final Function hello;
 
   @override
   _CustomGridBottomSheetState createState() {
@@ -53,6 +55,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             setState(() {
               print('set state from tap called');
               _selectedImageIndex = i;
+              widget.hello(i);
             });
           },
         ),

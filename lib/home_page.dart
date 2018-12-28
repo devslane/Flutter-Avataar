@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
+import 'package:flutter_avataar/avataar_webview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
     "Facial Hair Color",
     "Clothes",
     "Color Fabric",
+    "Graphic"
     "Eyes",
     "Eyebrow",
     "Mouth",
@@ -92,27 +94,184 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showModalBottomSheet(BuildContext context, String tabSelected) {
-    List<String> gridData = [
-      "assets/coffee.jpeg",
-      "assets/girl.jpg",
-      "assets/coffee.jpeg",
-      "assets/girl.jpg",
-      "assets/coffee.jpeg",
-      "assets/girl.jpg",
-      "assets/coffee.jpeg",
-      "assets/girl.jpg",
-      "assets/coffee.jpeg",
-      "assets/girl.jpg",
-      "assets/coffee.jpeg",
-      "assets/girl.jpg"
-    ];
+
+    List<String> gridData = new List();
+
+    switch(tabSelected){
+      case "Avatar Style":
+        gridData.clear();
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        break;
+      case "Top":
+        gridData.clear();
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        break;
+      case "Accessories":
+        gridData.clear();
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        break;
+      case "Facial Hair":
+        gridData.clear();
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        break;
+      case "Facial Hair Color":
+        gridData.clear();
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        break;
+      case "Clothes":
+        gridData.clear();
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        break;
+      case "Color Fabric":
+        gridData.clear();
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        break;
+      case "Graphic":
+        gridData.clear();
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        break;
+      case "Eyes":
+        gridData.clear();
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/coffee.jpeg");
+        break;
+      case "Eyebrow":
+        gridData.clear();
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/dbz.jpeg");
+        break;
+      case "Mouth":
+        gridData.clear();
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/girl.jpg");
+        break;
+      case "Skin":
+        gridData.clear();
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        gridData.add("assets/vegeta.jpeg");
+        gridData.add("assets/goku.jpeg");
+        break;
+    }
 
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return CustomGridBottomSheet(gridData);
+          return CustomGridBottomSheet(gridData: gridData,hello: printvalue,);
         });
   }
 
+
+  void printvalue(dynamic value){
+    print(value);
+  }
   
 }

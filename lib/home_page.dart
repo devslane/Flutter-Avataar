@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_avataar/avataar_page.dart';
+import 'package:flutter_avataar/avataar_webview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -45,16 +45,21 @@ class _HomePageState extends State<HomePage> {
         title: Text('kinzy'),
         centerTitle: true,
       ),
-      body: Column(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: Column(
         children: <Widget>[
           new Container(
-            color: Colors.blue,
-            height: 300.0,
+            // color: Colors.blue,
+            // height: 200.0,
             margin: EdgeInsets.only(bottom: 30.0),
-            child: AvataarPage(),
+//            child: Align(
+//        alignment: Alignment.center,
+        child: AvataarWebview('https://avataaars.io/?avatarStyle=Transparent&accessoriesType=Round&hatColor=Blue01&facialHairType=BeardMedium&facialHairColor=Blonde&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'),
+//      ),
           ),
           new Container(
-            height: 350.0,
+            height: MediaQuery.of(context).size.height - 400,
             child: new GridView.count(
                 crossAxisCount: 3,
                 childAspectRatio: 1.0,
@@ -81,6 +86,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      )
     );
   }
 

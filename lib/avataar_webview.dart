@@ -1,33 +1,45 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-// import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class AvataarWebview extends StatefulWidget {
+  AvataarWebview(this.url);
+  final String url;
   _AvataarWebviewState createState() => new _AvataarWebviewState();
 }
 
 class _AvataarWebviewState extends State<AvataarWebview> {
-  final flutterWebviewPlugin = new FlutterWebviewPlugin();
+
 
   @override
   void initState() {
-    flutterWebviewPlugin.close();
     super.initState();
   }
 
+  void dispose() {
+
+    super.dispose();
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      child: Text('Click Me to open Webview'),
-      onPressed: () {
-        setState(() {
-          flutterWebviewPlugin.launch(
-            'https://flutter.io',
-            rect: new Rect.fromLTWH(
-                0.0, 100.0, MediaQuery.of(context).size.width, 300.0),
-          );
-        });
-      },
+
+
+    return new Container(
+      color: Colors.transparent,
+      width: 250,
+      height: 280,
+      margin: EdgeInsets.symmetric(horizontal: 50),
+      child: WebView(
+        initialUrl: widget.url,
+        onWebViewCreated: (contrller) {
+          print('webview created');
+        },
+      ),
+      // height: 300.0
     );
   }
 }

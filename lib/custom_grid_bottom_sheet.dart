@@ -4,7 +4,7 @@ import 'package:flutter_avataar/custom_check_box.dart';
 class CustomGridBottomSheet extends StatefulWidget {
   CustomGridBottomSheet({this.gridData, this.currentSelected});
 
-  final List<String> gridData;
+  final List<String> gridData; // LIST OF URLS OF INDIVIDUAL AVATAR STYLE
   final Function currentSelected;
 
   @override

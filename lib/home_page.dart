@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_avataar/avataar_options.dart';
 import 'package:flutter_avataar/avataar_webview.dart';
 import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
 import 'package:flutter_avataar/enums.dart';
@@ -280,14 +281,36 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  String _getAvataarUrl() {
-    return 'https://avataaars.io/?avatarStyle=Transparent&accessoriesType=Round&hatColor=Blue01&facialHairType=BeardMedium&facialHairColor=Blonde&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light';
+   String _getAvataarUrl() {
+    return getAvataarUrl(AvataarOptions(avatarStyle: AvatarStyle.Circle, eyes: Eyes.Cry));
   }
 
   void changeCurrentSelected(dynamic value){
-    print(AvatarStyle.circle.toString().split('.')[1]);
-    currentSelected["avatar_style"]=value;
-    print(currentSelected);
+   setState(() {
+        this._getAvataarUrl();
+      });
+  }
+ String getAvataarUrl(AvataarOptions options) {
+
+    String urlOptions;
+    urlOptions = 
+    'accessoriesType'+ _getOptionString(options.accessories)+
+    'avatarStyle'+_getOptionString(options.avatarStyle)+
+    'clotheColor'+_getOptionString(options.clothColor)+
+    'clotheType'+_getOptionString(options.clothes)+
+    'eyeType'+_getOptionString(options.eyes)+
+    'eyebrowType'+_getOptionString(options.eyebrow)+
+    'facialHairColor'+_getOptionString(options.facialHairColor)+
+    'facialHairType'+_getOptionString(options.facialHair)+
+    'graphicType'+_getOptionString(options.graphic)+
+    'hairColor'+_getOptionString(options.hairColor)+
+    'mouthType'+_getOptionString(options.mouth)+
+    'skinColor'+_getOptionString(options.skin)+
+    'topType'+_getOptionString(options.top);
+    return urlOptions;
   }
 
+  _getOptionString(dynamic innerOption) {
+    return '=' + innerOption.toString().split('.')[1] + '&';
+  }
 }

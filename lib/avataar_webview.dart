@@ -8,10 +8,11 @@ class AvataarWebview extends StatefulWidget {
 }
 
 class _AvataarWebviewState extends State<AvataarWebview> {
-
+  final String baseUrl = 'https://avataaars.io/?';
 
   @override
   void initState() {
+   
     super.initState();
   }
 
@@ -26,14 +27,14 @@ class _AvataarWebviewState extends State<AvataarWebview> {
   @override
   Widget build(BuildContext context) {
 
-
+ print('URLLLLLLLLLLLLLL'+ baseUrl + widget.url);
     return new Container(
       color: Colors.transparent,
       width: 250,
       height: 280,
       margin: EdgeInsets.symmetric(horizontal: 50),
       child: WebView(
-        initialUrl: widget.url,
+        initialUrl: baseUrl + widget.url,
         onWebViewCreated: (contrller) {
           print('webview created');
         },

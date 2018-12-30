@@ -1,7 +1,7 @@
 import 'package:flutter_avataar/enums.dart';
 
 class AvataarOptions {
-  AvatarStyle style;
+  AvatarStyle avatarStyle;
   Top top;
   Accessories accessories;
   HairColor hairColor;
@@ -16,20 +16,20 @@ class AvataarOptions {
   FacialHairColor facialHairColor;
   Graphic graphic;
 
-  AvataarOptions() {
-    style = AvatarStyle.circle;
-    top = Top.shorthairfrizzle;
-    accessories = Accessories.kurta;
-    hairColor = HairColor.brownDark;
-    facialHair = FacialHair.moustachemagnum;
-    clothes = Cloth.blazerShirt;
-    clothColor = ClothColor.gray1;
-    eyes = Eyes.wink;
-    eyebrow = Eyebrow.angry;
-    mouth = Mouth.serious;
-    skin = Skin.light;
-    hatColor = HatColor.black;
-    facialHairColor = FacialHairColor.black;
-    graphic = Graphic.skull;
-  }
+  AvataarOptions({
+    this.avatarStyle = AvatarStyle.Transparent,
+    this.top = Top.Shorthairfrizzle,
+    this.accessories = Accessories.Kurta,
+    this.hairColor = HairColor.BrownDark,
+    this.facialHair = FacialHair.Moustachemagnum,
+    this.clothes = Cloth.BlazerShirt,
+    this.clothColor = ClothColor.Gray1,
+    this.eyes = Eyes.Wink,
+    this.eyebrow = Eyebrow.Angry,
+    this.mouth = Mouth.Serious,
+    this.skin = Skin.Light,
+    this.hatColor = HatColor.Black,
+    this.facialHairColor = FacialHairColor.Black,
+    this.graphic = Graphic.Skull
+  });
 }

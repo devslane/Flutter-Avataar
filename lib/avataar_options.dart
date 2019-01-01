@@ -20,9 +20,9 @@ class AvataarOptions {
   AvataarOptions({
     this.avatarStyle = AvatarStyle.Transparent,
     this.top = Top.ShortHairFrizzle,
-    this.accessories = Accessories.Kurta,
+    this.accessories = Accessories.Kurt,
     this.hairColor = HairColor.BrownDark,
-    this.facialHair = FacialHair.Moustachemagnum,
+    this.facialHair = FacialHair.MoustacheMagnum,
     this.clothes = Cloth.BlazerShirt,
     this.clothColor = ClothColor.Gray1,
     this.eyes = Eyes.Wink,

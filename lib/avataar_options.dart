@@ -18,20 +18,20 @@ class AvataarOptions {
   // Face face;
 
   AvataarOptions({
-    this.avatarStyle = AvatarStyle.Transparent,
-    this.top = Top.ShortHairFrizzle,
-    this.accessories = Accessories.Kurt,
-    this.hairColor = HairColor.BrownDark,
-    this.facialHair = FacialHair.MoustacheMagnum,
-    this.clothes = Cloth.BlazerShirt,
-    this.clothColor = ClothColor.Gray1,
-    this.eyes = Eyes.Wink,
-    this.eyebrow = Eyebrow.Angry,
-    this.mouth = Mouth.Serious,
-    this.skin = Skin.Light,
-    this.hatColor = HatColor.Black,
-    this.facialHairColor = FacialHairColor.Black,
-    this.graphic = Graphic.Skull,
+    this.avatarStyle = AvatarStyle.transparent,
+    this.top = Top.shorthairfrizzle,
+    this.accessories = Accessories.kurta,
+    this.hairColor = HairColor.brownDark,
+    this.facialHair = FacialHair.moustachemagnum,
+    this.clothes = Cloth.blazerShirt,
+    this.clothColor = ClothColor.gray1,
+    this.eyes = Eyes.wink,
+    this.eyebrow = Eyebrow.angry,
+    this.mouth = Mouth.serious,
+    this.skin = Skin.light,
+    this.hatColor = HatColor.black,
+    this.facialHairColor = FacialHairColor.black,
+    this.graphic = Graphic.skull,
     // this.face = Face.Eyes
   }) {
     print('THE LIST IN TOP ENUM IS');

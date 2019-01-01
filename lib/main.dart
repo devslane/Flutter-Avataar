@@ -7,6 +7,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+        accentColor: Colors.blueAccent.withOpacity(.65),
+      ),
       home: new Scaffold(
         backgroundColor: Colors.white,
         body: HomePage(),
@@ -14,4 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

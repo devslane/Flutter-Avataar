@@ -22,8 +22,41 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300.0,
-      child: new GridView.count(crossAxisCount: 4, children: _getTiles()),
+      height: 250.0,
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      child: new Stack(
+        children: <Widget>[
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(15.0)),
+            elevation: 24.0,
+            child: new Container(
+              color: Colors.white,
+              height: 250.0,
+              margin: EdgeInsets.only(top: 30.0),
+              child: new GridView.count(
+                crossAxisCount: 4,
+                children: _getTiles(),
+              ),
+            ),
+          ),
+          new Align(
+              alignment: Alignment.topRight,
+              child: new Container(
+                margin: EdgeInsets.only(top: 5.0, right: 10.0),
+                child: GestureDetector(
+                  child: new Icon(
+                    Icons.clear,
+                    color: Colors.grey,
+                    size: 30.0,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ))
+        ],
+      ),
     );
   }
 
@@ -168,10 +201,10 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
         widget.options.hairColor = itemList[_selectedImageIndex].type;
         break;
       case FacialHair:
-       widget.options.facialHair = itemList[_selectedImageIndex].type;
+        widget.options.facialHair = itemList[_selectedImageIndex].type;
         break;
       case Cloth:
-       widget.options.clothes = itemList[_selectedImageIndex].type;
+        widget.options.clothes = itemList[_selectedImageIndex].type;
         break;
       case ClothColor:
         widget.options.clothColor = itemList[_selectedImageIndex].type;
@@ -180,25 +213,25 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
         widget.options.eyes = itemList[_selectedImageIndex].type;
         break;
       case Eyebrow:
-       widget.options.eyebrow = itemList[_selectedImageIndex].type;
+        widget.options.eyebrow = itemList[_selectedImageIndex].type;
         break;
       case Mouth:
-       widget.options.mouth = itemList[_selectedImageIndex].type;
+        widget.options.mouth = itemList[_selectedImageIndex].type;
         break;
       case Skin:
         widget.options.skin = itemList[_selectedImageIndex].type;
         break;
       case HatColor:
-       widget.options.hatColor = itemList[_selectedImageIndex].type;
+        widget.options.hatColor = itemList[_selectedImageIndex].type;
         break;
       case FacialHairColor:
-       widget.options.facialHairColor = itemList[_selectedImageIndex].type;
+        widget.options.facialHairColor = itemList[_selectedImageIndex].type;
         break;
       case Graphic:
         widget.options.graphic = itemList[_selectedImageIndex].type;
         break;
       case Face:
-       widget.options.face = itemList[_selectedImageIndex].type;
+        widget.options.face = itemList[_selectedImageIndex].type;
         break;
     }
     widget.changeCurrentSelected(widget.options);

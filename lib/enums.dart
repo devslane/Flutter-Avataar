@@ -42,8 +42,8 @@ enum Top {
 enum Accessories {
   Blank,
   Kurt,
-  Prescripiton01,
-  Prescripiton02,
+  Prescription01,
+  Prescription02,
   Round,
   Sunglasses,
   Wayfarers,

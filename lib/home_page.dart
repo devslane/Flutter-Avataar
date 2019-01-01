@@ -13,19 +13,19 @@ class _HomePageState extends State<HomePage> {
   AvataarOptions options = new AvataarOptions();
   List<dynamic> avatarCharacteristics = [
     Top,
-  Accessories,
-  HairColor,
-  FacialHair,
-  Cloth,
-  ClothColor,
-  Eyes,
-  Eyebrow,
-  Mouth,
-  Skin,
-  HatColor,
-  FacialHairColor,
-  Graphic,
-  Face,
+    Accessories,
+    HairColor,
+    FacialHair,
+    Cloth,
+    ClothColor,
+    Eyes,
+    Eyebrow,
+    Mouth,
+    Skin,
+    HatColor,
+    FacialHairColor,
+    Graphic,
+    Face,
   ];
 
   @override
@@ -44,38 +44,38 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               new Container(
                 height: 280,
-                margin: EdgeInsets.only(bottom: 30.0),
+                margin: EdgeInsets.only(bottom: 8.0),
                 child: new AvataarWebview(_getAvataarUrl(options)),
               ),
-              new Container(
-                height: MediaQuery.of(context).size.height - 450,
-                child: new GridView.count(
-                    crossAxisCount: 3,
-                    childAspectRatio: 1.0,
-                    padding: const EdgeInsets.all(4.0),
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    children:
-                        avatarCharacteristics.map((dynamic characteristic) {
-                      return new Container(
-                        child: new Card(
-                          color: Colors.white,
-                          child: new FlatButton(
-                            onPressed: () {
-                              _showModalBottomSheet(context,
-                                  characteristic);
-                            },
-                            child: new Text(
-                              characteristic.toString(),
-                              style: TextStyle(
-                                  fontSize: 18.0, color: Colors.black),
-                              textAlign: TextAlign.center,
+              new Expanded(
+                child: new Container(
+                  child: new GridView.count(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1.0,
+                      padding: const EdgeInsets.all(4.0),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
+                      children:
+                          avatarCharacteristics.map((dynamic characteristic) {
+                        return new Container(
+                          child: new Card(
+                            color: Colors.white,
+                            child: new FlatButton(
+                              onPressed: () {
+                                _showModalBottomSheet(context, characteristic);
+                              },
+                              child: new Text(
+                                characteristic.toString(),
+                                style: TextStyle(
+                                    fontSize: 18.0, color: Colors.black),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }).toList()),
-              )
+                        );
+                      }).toList()),
+                ),
+              ),
             ],
           ),
         ));

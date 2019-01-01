@@ -142,7 +142,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
         break;
       case Graphic:
         Graphic.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value, "assets/Graphic/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;

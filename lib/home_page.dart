@@ -10,49 +10,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final String baseUrl = 'https://avataaars.io/';
-  String avatarStyle = '';
-  String topType = '';
-  String accessoriesType = '';
-  String clotheColor = '';
-  String clotheType = '';
-  String eyeType = '';
-  String eyebrowType = '';
-  String facialHairColor = '';
-  String facialHairType = '';
-  String mouthType = '';
-  String skinColor = '';
-  String hairColor = '';
+  AvataarOptions options = new AvataarOptions();
   List<String> avatarCharacteristics = [
-    "Avatar Style",
-    "Top",
-    "Accessories",
-    "Facial Hair",
-    "Facial Hair Color",
-    "Clothes",
-    "Color Fabric",
-    "Graphic"
-    "Eyes",
-    "Eyebrow",
-    "Mouth",
-    "Skin"
+    "top",
+    "accessories",
+    "facialHair",
+    "facialHairColor",
+    "clothes",
+    "colorFabric",
+    "graphic"
+    "eyes",
+    "eyebrow",
+    "mouth",
+    "skin",
+    "face"
   ];
-
-  Map<dynamic, String> currentSelected = {
-    "avatar_style": "Circle",
-    "top": "ShortHairShaggyMullet",
-    "accessories": "Kurt",
-    "hair_color": "BrownDark",
-    "facial_hair": "MoustacheMagnum",
-    "facial_hair_color": "Red",
-    "clothes": "GraphicShirt",
-    "color_fabric": "PastelRed",
-    "graphic": "Skull",
-    "eyes": "Close",
-    "eyebrow": "Angry",
-    "mouth": "Concerned",
-    "skin": "Tanned",
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +36,14 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
         ),
         body: Container(
+          color: Colors.white,
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: <Widget>[
               new Container(
                 height: 280,
                 margin: EdgeInsets.only(bottom: 30.0),
-                child: AvataarWebview(_getAvataarUrl()),
+                child: new AvataarWebview(_getAvataarUrl(options)),
               ),
               new Container(
                 height: MediaQuery.of(context).size.height - 450,
@@ -87,7 +60,8 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                           child: new FlatButton(
                             onPressed: () {
-                              _showModalBottomSheet(context, characteristic);
+                              _showModalBottomSheet(context,
+                                  getCharacteristicEnumType(characteristic));
                             },
                             child: new Text(
                               characteristic,
@@ -105,212 +79,101 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  void _showModalBottomSheet(BuildContext context, String tabSelected) {
-
-    List<String> gridData = new List();
-
-    switch(tabSelected){
-      case "Avatar Style":
-        gridData.clear();
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
+  dynamic getCharacteristicEnumType(String type) {
+    switch (type) {
+      case "top":
+        return Top;
         break;
-      case "Top":
-        gridData.clear();
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
+      case "accessories":
+        return Accessories;
         break;
-      case "Accessories":
-        gridData.clear();
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
+      case "facialHair":
+        return FacialHair;
         break;
-      case "Facial Hair":
-        gridData.clear();
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
+      case "facialHairColor":
+        return FacialHairColor;
         break;
-      case "Facial Hair Color":
-        gridData.clear();
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
+      case "clothes":
+        return Cloth;
         break;
-      case "Clothes":
-        gridData.clear();
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
+      case "colorFabric":
+        return ClothColor;
         break;
-      case "Color Fabric":
-        gridData.clear();
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
+      case "graphic":
+        return Graphic;
         break;
-      case "Graphic":
-        gridData.clear();
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
+      case "eyes":
+        return Eyes;
         break;
-      case "Eyes":
-        gridData.clear();
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/coffee.jpeg");
+      case "eyebrow":
+        return Eyebrow;
         break;
-      case "Eyebrow":
-        gridData.clear();
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/dbz.jpeg");
+      case "mouth":
+        return Mouth;
         break;
-      case "Mouth":
-        gridData.clear();
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/girl.jpg");
+      case "skin":
+        return Skin;
         break;
-      case "Skin":
-        gridData.clear();
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
-        gridData.add("assets/vegeta.jpeg");
-        gridData.add("assets/goku.jpeg");
+      case "face":
+        return Face;
         break;
+      default :
+       return AvatarStyle;  
     }
+  }
 
+  void _showModalBottomSheet(BuildContext context, dynamic tabSelected) {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return CustomGridBottomSheet(gridData: gridData,currentSelected: changeCurrentSelected,);
+          return CustomGridBottomSheet(
+            options: options,
+            type: tabSelected,
+            changeCurrentSelected: _changeCurrentSelected,
+          );
         });
   }
 
-   String _getAvataarUrl() {
-    return getAvataarUrl(AvataarOptions(avatarStyle: AvatarStyle.Circle, eyes: Eyes.Cry));
+  void _changeCurrentSelected(AvataarOptions value) {
+    setState(() {
+      print('value on changing item');
+      print(value);
+      this.options = value;
+    });
   }
 
-  void changeCurrentSelected(dynamic value){
-   setState(() {
-        this._getAvataarUrl();
-      });
-  }
- String getAvataarUrl(AvataarOptions options) {
-
+  String _getAvataarUrl(AvataarOptions options) {
     String urlOptions;
-    urlOptions = 
-    'accessoriesType'+ _getOptionString(options.accessories)+
-    'avatarStyle'+_getOptionString(options.avatarStyle)+
-    'clotheColor'+_getOptionString(options.clothColor)+
-    'clotheType'+_getOptionString(options.clothes)+
-    'eyeType'+_getOptionString(options.eyes)+
-    'eyebrowType'+_getOptionString(options.eyebrow)+
-    'facialHairColor'+_getOptionString(options.facialHairColor)+
-    'facialHairType'+_getOptionString(options.facialHair)+
-    'graphicType'+_getOptionString(options.graphic)+
-    'hairColor'+_getOptionString(options.hairColor)+
-    'mouthType'+_getOptionString(options.mouth)+
-    'skinColor'+_getOptionString(options.skin)+
-    'topType'+_getOptionString(options.top);
+    urlOptions = 'accessoriesType' +
+        _getOptionString(options.accessories) +
+        'avatarStyle' +
+        _getOptionString(options.avatarStyle) +
+        'clotheColor' +
+        _getOptionString(options.clothColor) +
+        'clotheType' +
+        _getOptionString(options.clothes) +
+        'eyeType' +
+        _getOptionString(options.eyes) +
+        'eyebrowType' +
+        _getOptionString(options.eyebrow) +
+        'facialHairColor' +
+        _getOptionString(options.facialHairColor) +
+        'facialHairType' +
+        _getOptionString(options.facialHair) +
+        'graphicType' +
+        _getOptionString(options.graphic) +
+        'hairColor' +
+        _getOptionString(options.hairColor) +
+        'mouthType' +
+        _getOptionString(options.mouth) +
+        'skinColor' +
+        _getOptionString(options.skin) +
+        'topType' +
+        _getOptionString(options.top);
     return urlOptions;
   }
 
-  _getOptionString(dynamic innerOption) {
+  String _getOptionString(dynamic innerOption) {
     return '=' + innerOption.toString().split('.')[1] + '&';
   }
 }

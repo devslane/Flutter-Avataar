@@ -15,10 +15,11 @@ class AvataarOptions {
   HatColor hatColor;
   FacialHairColor facialHairColor;
   Graphic graphic;
+  Face face;
 
   AvataarOptions({
     this.avatarStyle = AvatarStyle.Transparent,
-    this.top = Top.Shorthairfrizzle,
+    this.top = Top.ShortHairFrizzle,
     this.accessories = Accessories.Kurta,
     this.hairColor = HairColor.BrownDark,
     this.facialHair = FacialHair.Moustachemagnum,
@@ -30,6 +31,10 @@ class AvataarOptions {
     this.skin = Skin.Light,
     this.hatColor = HatColor.Black,
     this.facialHairColor = FacialHairColor.Black,
-    this.graphic = Graphic.Skull
-  });
+    this.graphic = Graphic.Skull,
+    this.face = Face.Eyes
+  }) {
+    print('THE LIST IN TOP ENUM IS');
+    print(Top.values.toList());
+  }
 }

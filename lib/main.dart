@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: new Scaffold(
+        backgroundColor: Colors.white,
         body: HomePage(),
       ),
     );

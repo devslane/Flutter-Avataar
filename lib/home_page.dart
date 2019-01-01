@@ -11,19 +11,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   AvataarOptions options = new AvataarOptions();
-  List<String> avatarCharacteristics = [
-    "top",
-    "accessories",
-    "facialHair",
-    "facialHairColor",
-    "clothes",
-    "colorFabric",
-    "graphic"
-    "eyes",
-    "eyebrow",
-    "mouth",
-    "skin",
-    "face"
+  List<dynamic> avatarCharacteristics = [
+    Top,
+  Accessories,
+  HairColor,
+  FacialHair,
+  Cloth,
+  ClothColor,
+  Eyes,
+  Eyebrow,
+  Mouth,
+  Skin,
+  HatColor,
+  FacialHairColor,
+  Graphic,
+  Face,
   ];
 
   @override
@@ -54,17 +56,17 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 4.0,
                     crossAxisSpacing: 4.0,
                     children:
-                        avatarCharacteristics.map((String characteristic) {
+                        avatarCharacteristics.map((dynamic characteristic) {
                       return new Container(
                         child: new Card(
                           color: Colors.white,
                           child: new FlatButton(
                             onPressed: () {
                               _showModalBottomSheet(context,
-                                  getCharacteristicEnumType(characteristic));
+                                  characteristic);
                             },
                             child: new Text(
-                              characteristic,
+                              characteristic.toString(),
                               style: TextStyle(
                                   fontSize: 18.0, color: Colors.black),
                               textAlign: TextAlign.center,
@@ -77,49 +79,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ));
-  }
-
-  dynamic getCharacteristicEnumType(String type) {
-    switch (type) {
-      case "top":
-        return Top;
-        break;
-      case "accessories":
-        return Accessories;
-        break;
-      case "facialHair":
-        return FacialHair;
-        break;
-      case "facialHairColor":
-        return FacialHairColor;
-        break;
-      case "clothes":
-        return Cloth;
-        break;
-      case "colorFabric":
-        return ClothColor;
-        break;
-      case "graphic":
-        return Graphic;
-        break;
-      case "eyes":
-        return Eyes;
-        break;
-      case "eyebrow":
-        return Eyebrow;
-        break;
-      case "mouth":
-        return Mouth;
-        break;
-      case "skin":
-        return Skin;
-        break;
-      case "face":
-        return Face;
-        break;
-      default :
-       return AvatarStyle;  
-    }
   }
 
   void _showModalBottomSheet(BuildContext context, dynamic tabSelected) {

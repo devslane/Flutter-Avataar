@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     HatColor,
     FacialHairColor,
     Graphic,
-    Face,
+    // Face,
   ];
 
   @override
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     print('build called');
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
           title: Text('kinzy'),
           centerTitle: true,
         ),
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
               ),
               new Expanded(
                 child: new Container(
+                  
                   child: new GridView.count(
                       crossAxisCount: 3,
                       childAspectRatio: 1.0,
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                           avatarCharacteristics.map((dynamic characteristic) {
                         return new Container(
                           child: new Card(
-                            color: Colors.white,
+                            color: Colors.blueAccent.withOpacity(.75),
                             child: new FlatButton(
                               onPressed: () {
                                 _showModalBottomSheet(context, characteristic);

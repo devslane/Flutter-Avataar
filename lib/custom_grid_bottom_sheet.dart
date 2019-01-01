@@ -22,8 +22,8 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250.0,
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      height: 310.0,
+      margin: EdgeInsets.symmetric(horizontal: 3.0),
       child: new Stack(
         children: <Widget>[
           Card(
@@ -32,7 +32,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             elevation: 24.0,
             child: new Container(
               color: Colors.white,
-              height: 250.0,
+//              height: 250.0,
               margin: EdgeInsets.only(top: 30.0),
               child: new GridView.count(
                 crossAxisCount: 4,
@@ -67,90 +67,91 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
     print(widget.options);
     switch (widget.type) {
       case Top:
-        Top.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/Top/" + top.toString().split('.')[1] +".png");
+        Top.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(
+              value, "assets/Top/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Accessories:
         print(AvatarStyle.values.toList());
-        Accessories.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Accessories.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/Accessories/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case HairColor:
-        HairColor.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        HairColor.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case FacialHair:
-        FacialHair.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        FacialHair.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Cloth:
-        Cloth.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Cloth.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/ClotheType/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case ClothColor:
-        ClothColor.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        ClothColor.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Eyes:
-        Eyes.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Eyes.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/Eyes/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Eyebrow:
-        Eyebrow.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Eyebrow.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/Eyebrow/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Mouth:
-        Mouth.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Mouth.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/Mouth/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Skin:
-        Skin.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Skin.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/Skin/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case HatColor:
-        HatColor.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        HatColor.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case FacialHairColor:
-        FacialHairColor.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        FacialHairColor.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Graphic:
-        Graphic.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+        Graphic.values.toList().forEach((value) {
+          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
-      case Face:
-        Face.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
-          itemList.add(item);
-        });
-        break;
+      // case Face:
+      //   Face.values.toList().forEach((value) {
+      //     SelectItem item = new SelectItem(value, "assets/avataaars.png");
+      //     itemList.add(item);
+      //   });
+      //   break;
     }
     for (int i = 0; i < itemList.length; i++) {
       tiles.add(
@@ -160,12 +161,16 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             child: Stack(
               children: <Widget>[
                 GridTile(
+                  child: Card(
+                    color: Colors.white30,
                     child: new Image.asset(
-                  itemList[i].imagePath,
-                  height: 280,
-                  width: 280,
-                  fit: BoxFit.cover,
-                )),
+                      itemList[i].imagePath,
+                      height: 280,
+                      width: 280,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ),
+                ),
                 _selectedImageIndex == i
                     ? Align(
                         alignment: Alignment.topRight,
@@ -230,9 +235,9 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
       case Graphic:
         widget.options.graphic = itemList[_selectedImageIndex].type;
         break;
-      case Face:
-        widget.options.face = itemList[_selectedImageIndex].type;
-        break;
+      // case Face:
+      //   widget.options.face = itemList[_selectedImageIndex].type;
+      //   break;
     }
     widget.changeCurrentSelected(widget.options);
   }

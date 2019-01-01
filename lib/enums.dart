@@ -111,7 +111,7 @@ enum Cloth {
 enum Eyes {
   Close,
   Cry,
-  None,
+  Default,
   Dizzy,
   EyeRoll,
   Happy,
@@ -125,14 +125,15 @@ enum Eyes {
 enum Eyebrow {
   Angry,
   AngryNatural,
-  None,
+  Default,
   DefaultNatural,
   FlatNatural,
+  FrownNatural,
   RaisedExcited,
   RaisedExcitedNatural,
   SadConcerned,
   SadConcernedNatural,
-  UniBrowNatural,
+  UnibrowNatural,
   UpDown,
   UpDownNatural,
 }
@@ -159,7 +160,7 @@ enum Skin {
   DarkBrown, 
   Black 
 }
-enum Face { Mouth, Nose, Eyes, Eyebrow }
+// enum Face { Mouth, Nose, Eyes, Eyebrow }
 enum ClothColor {
   Black,
   Blue1,

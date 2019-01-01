@@ -15,7 +15,7 @@ class AvataarOptions {
   HatColor hatColor;
   FacialHairColor facialHairColor;
   Graphic graphic;
-  Face face;
+  // Face face;
 
   AvataarOptions({
     this.avatarStyle = AvatarStyle.Transparent,
@@ -32,7 +32,7 @@ class AvataarOptions {
     this.hatColor = HatColor.Black,
     this.facialHairColor = FacialHairColor.Black,
     this.graphic = Graphic.Skull,
-    this.face = Face.Eyes
+    // this.face = Face.Eyes
   }) {
     print('THE LIST IN TOP ENUM IS');
     print(Top.values.toList());

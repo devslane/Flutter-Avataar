@@ -94,7 +94,8 @@ enum FacialHairColor {
   brownDark,
   pastelPink,
   platinum,
-  red
+  red,
+  silverRed
 }
 enum Cloth {
   blazerShirt,

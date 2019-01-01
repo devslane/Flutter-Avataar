@@ -85,6 +85,9 @@ class ColorMapping {
       case "white":
       color = Colors.white;
         break;
+      case "silverRed":
+      color = Colors.red;
+      break;  
     }
     return color;
   }

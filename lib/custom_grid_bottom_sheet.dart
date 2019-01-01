@@ -68,7 +68,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
     switch (widget.type) {
       case Top:
         Top.values.toList().forEach((top) {
-          SelectItem item = new SelectItem(top, "assets/avataaars.png");
+          SelectItem item = new SelectItem(top, "assets/Top/" + top.toString().split('.')[1] +".png");
           itemList.add(item);
         });
         break;

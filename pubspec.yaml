@@ -46,6 +46,41 @@ flutter:
         - assets/goku.jpeg
         - assets/vegeta.jpeg
         - assets/avataaars.png
+        - assets/Top/NoHair.png
+        - assets/Top/Eyepatch.png
+        - assets/Top/Hat.png
+        - assets/Top/Hijab.png
+        - assets/Top/Turban.png
+        - assets/Top/WinterHat1.png
+        - assets/Top/WinterHat2.png
+        - assets/Top/WinterHat3.png
+        - assets/Top/WinterHat4.png
+        - assets/Top/LongHairBigHair.png
+        - assets/Top/LongHairBob.png
+        - assets/Top/LongHairBun.png
+        - assets/Top/LongHairCurly.png
+        - assets/Top/LongHairCurvy.png
+        - assets/Top/LongHairDreads.png
+        - assets/Top/LongHairFrida.png
+        - assets/Top/LongHairFro.png
+        - assets/Top/LongHairFroBand.png
+        - assets/Top/LongHairNotTooLong.png
+        - assets/Top/LongHairShavedSides.png
+        - assets/Top/LongHairMiawallace.png
+        - assets/Top/LongHairStraight.png
+        - assets/Top/LongHairStraight2.png
+        - assets/Top/LongHairStraightStrand.png
+        - assets/Top/ShortHairDreads01.png
+        - assets/Top/ShortHairDreads02.png
+        - assets/Top/ShortHairFrizzle.png
+        - assets/Top/ShortHairShaggyMullet.png
+        - assets/Top/ShortHairShortCurly.png
+        - assets/Top/ShortHairShortFlat.png
+        - assets/Top/ShortHairShortRound.png
+        - assets/Top/ShortHairShortWaved.png
+        - assets/Top/ShortHairSides.png
+        - assets/Top/ShortHairTheCaesar.png
+        - assets/Top/ShortHairTheCaesarSidePart.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

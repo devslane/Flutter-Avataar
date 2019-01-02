@@ -23,7 +23,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 480.0,
+      height: MediaQuery.of(context).size.height / 1.7,
       margin: EdgeInsets.symmetric(horizontal: 3.0),
       child: new Stack(
         children: <Widget>[
@@ -33,7 +33,6 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             elevation: 24.0,
             child: new Container(
               color: Colors.white,
-//              height: 250.0,
               margin: EdgeInsets.only(top: 30.0),
               child: new GridView.count(
                 crossAxisCount: 4,

@@ -7,7 +7,7 @@ import 'methods/tops.dart';
 String getSvg(Options options) {
   return """
   <svg
-        width="240px"
+        width="220px"
         height="240px"
         viewBox="0 0 240 280"
         version="1.1"

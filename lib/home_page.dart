@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               new Container(
-                height: 280,
+                height: MediaQuery.of(context).size.height / 2.5,
                 margin: EdgeInsets.only(bottom: 8.0),
                 child: new Avataarview(_getAvataarUrl(options)),
               ),

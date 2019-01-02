@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_avataar/avataar_webview.dart';
+import 'package:flutter_avataar/utils/avataar_view.dart';
 import 'package:flutter_avataar/avatar/avatar.dart';
 import 'package:flutter_avataar/avatar/enums.dart';
-import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
+import 'package:flutter_avataar/utils/custom_ui/custom_grid_bottom_sheet.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               new Container(
                 height: 280,
                 margin: EdgeInsets.only(bottom: 8.0),
-                child: new AvataarWebview(_getAvataarUrl(options)),
+                child: new Avataarview(_getAvataarUrl(options)),
               ),
               new Expanded(
                 child: new Container(
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showModalBottomSheet(BuildContext context, dynamic tabSelected) {
-    showModalBottomSheet(
+    showBottomSheet(
         context: context,
         builder: (BuildContext context) {
           return CustomGridBottomSheet(

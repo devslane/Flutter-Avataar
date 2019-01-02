@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_avataar/avatar/avatar.dart';
 import 'package:flutter_avataar/avatar/enums.dart';
-import 'package:flutter_avataar/custom_check_box.dart';
-import 'package:flutter_avataar/select_item.dart';
+import 'package:flutter_avataar/utils/custom_ui/custom_check_box.dart';
+import 'package:flutter_avataar/models/select_item.dart';
 
 class CustomGridBottomSheet extends StatefulWidget {
   CustomGridBottomSheet({this.options, this.type, this.changeCurrentSelected});

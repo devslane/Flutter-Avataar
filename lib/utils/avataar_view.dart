@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class AvataarWebview extends StatefulWidget {
-  AvataarWebview(this.url);
+class Avataarview extends StatefulWidget {
+  Avataarview(this.url);
   final String url;
-  _AvataarWebviewState createState() => new _AvataarWebviewState();
+  _AvataarviewState createState() => new _AvataarviewState();
 }
 
-class _AvataarWebviewState extends State<AvataarWebview> {
+class _AvataarviewState extends State<Avataarview> {
   final String baseUrl = 'https://avataaars.io/?';
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _AvataarWebviewState extends State<AvataarWebview> {
       color: Colors.transparent,
       width: 264,
       height: 280,
-      margin: EdgeInsets.symmetric(horizontal: 50),
+//      margin: EdgeInsets.symmetric(horizontal: 50),
       child: new WebView(
         key: key,
         initialUrl:

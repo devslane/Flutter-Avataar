@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text('kinzy'),
+          title: Text('Avataar'),
           centerTitle: true,
         ),
         body: Container(
@@ -49,12 +49,8 @@ class _HomePageState extends State<HomePage> {
               ),
               new Expanded(
                 child: new Container(
-                  child: new GridView.count(
-                      crossAxisCount: 3,
-                      childAspectRatio: 1.0,
+                  child: new ListView(
                       padding: const EdgeInsets.all(4.0),
-                      mainAxisSpacing: 4.0,
-                      crossAxisSpacing: 4.0,
                       children:
                           avatarCharacteristics.map((dynamic characteristic) {
                         return new Container(
@@ -67,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                               child: new Text(
                                 characteristic.toString(),
                                 style: TextStyle(
-                                    fontSize: 18.0, color: Colors.black),
+                                    fontSize: 18.0, color: Colors.white),
                                 textAlign: TextAlign.center,
                               ),
                             ),

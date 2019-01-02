@@ -9,7 +9,7 @@ String getSvg(Options options) {
   <svg
         width="240px"
         height="240px"
-        viewBox="0 0 264 280"
+        viewBox="0 0 240 280"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:link="http://www.w3.org/1999/xlink">
@@ -35,10 +35,7 @@ String getSvg(Options options) {
             transform="translate(-825.000000, -1100.000000)"
             id="Avataaar/Circle">
             <g transform="translate(825.000000, 1100.000000)">
-             
-                <mask id="mask-4" fill="white">
-                  <use xlink:href="#path-3" />
-                </mask>
+           
               <g id="Mask" />
               <g
                 id="Avataaar"

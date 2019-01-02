@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Avataar",
       home: new Scaffold(
         backgroundColor: Colors.white,
         body: HomePage(),
@@ -14,4 +15,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

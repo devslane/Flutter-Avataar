@@ -23,38 +23,33 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 1.7,
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(horizontal: 3.0),
       child: new Stack(
         children: <Widget>[
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(15.0)),
-            elevation: 24.0,
-            child: new Container(
-              color: Colors.white,
-              margin: EdgeInsets.only(top: 30.0),
-              child: new GridView.count(
-                crossAxisCount: 4,
-                children: _getTiles(),
-              ),
+            elevation: 2.0,
+            child: new Column(
+              children: <Widget>[
+                Center(
+                  child: Text(
+                    widget.type.toString(),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+                  ),
+                ),
+                Expanded(
+                  child: new GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 4,
+                    children: _getTiles(),
+                  ),
+                ),
+              ],
             ),
           ),
-          new Align(
-              alignment: Alignment.topRight,
-              child: new Container(
-                margin: EdgeInsets.only(top: 5.0, right: 10.0),
-                child: GestureDetector(
-                  child: new Icon(
-                    Icons.clear,
-                    color: Colors.grey,
-                    size: 30.0,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ))
         ],
       ),
     );

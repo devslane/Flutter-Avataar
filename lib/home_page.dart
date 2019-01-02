@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     print('build called');
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Theme.of(context).primaryColor,
           title: Text('kinzy'),
           centerTitle: true,
         ),
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                           avatarCharacteristics.map((dynamic characteristic) {
                         return new Container(
                           child: new Card(
-                            color: Colors.blueAccent.withOpacity(.75),
+                            color: Theme.of(context).accentColor,
                             child: new FlatButton(
                               onPressed: () {
                                 _showModalBottomSheet(context, characteristic);

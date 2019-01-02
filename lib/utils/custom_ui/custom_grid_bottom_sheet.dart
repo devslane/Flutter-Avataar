@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_avataar/avatar/avatar.dart';
 import 'package:flutter_avataar/avatar/enums.dart';
-import 'package:flutter_avataar/utils/custom_ui/custom_check_box.dart';
 import 'package:flutter_avataar/models/select_item.dart';
+import 'package:flutter_avataar/utils/colors.dart';
+import 'package:flutter_avataar/utils/custom_ui/custom_check_box.dart';
 
 class CustomGridBottomSheet extends StatefulWidget {
   CustomGridBottomSheet({this.options, this.type, this.changeCurrentSelected});
@@ -22,7 +23,7 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 310.0,
+      height: 480.0,
       margin: EdgeInsets.symmetric(horizontal: 3.0),
       child: new Stack(
         children: <Widget>[
@@ -68,8 +69,9 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
     switch (widget.type) {
       case Top:
         Top.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(
-              value, "assets/Top/" + value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              imagePath:
+                  "assets/Top/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
@@ -77,84 +79,95 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
         print(AvatarStyle.values.toList());
         Accessories.values.toList().forEach((value) {
           SelectItem item = new SelectItem(value,
-              "assets/Accessories/" + value.toString().split('.')[1] + ".png");
+              imagePath: "assets/Accessories/" +
+                  value.toString().split('.')[1] +
+                  ".png");
           itemList.add(item);
         });
         break;
       case HairColor:
         HairColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value,
-              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
+          SelectItem item =
+              new SelectItem(value, color: ColorMapping(value).getColor());
           itemList.add(item);
         });
         break;
       case FacialHair:
         FacialHair.values.toList().forEach((value) {
           SelectItem item = new SelectItem(value,
-              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
+              imagePath: "assets/FacialHair/" +
+                  value.toString().split('.')[1] +
+                  ".png");
           itemList.add(item);
         });
         break;
       case Cloth:
         Cloth.values.toList().forEach((value) {
           SelectItem item = new SelectItem(value,
-              "assets/ClotheType/" + value.toString().split('.')[1] + ".png");
+              imagePath: "assets/ClotheType/" +
+                  value.toString().split('.')[1] +
+                  ".png");
           itemList.add(item);
         });
         break;
       case ClothColor:
         ClothColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value,
-              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
+          SelectItem item =
+              new SelectItem(value, color: ColorMapping(value).getColor());
           itemList.add(item);
         });
         break;
       case Eyes:
         Eyes.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(
-              value, "assets/Eyes/" + value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              imagePath:
+                  "assets/Eyes/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Eyebrow:
         Eyebrow.values.toList().forEach((value) {
           SelectItem item = new SelectItem(value,
-              "assets/Eyebrow/" + value.toString().split('.')[1] + ".png");
+              imagePath:
+                  "assets/Eyebrow/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Mouth:
         Mouth.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(
-              value, "assets/Mouth/" + value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              imagePath:
+                  "assets/Mouth/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Skin:
         Skin.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(
-              value, "assets/Skin/" + value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              imagePath:
+                  "assets/Skin/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case HatColor:
         HatColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value,
-              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
+          SelectItem item =
+              new SelectItem(value, color: ColorMapping(value).getColor());
           itemList.add(item);
         });
         break;
       case FacialHairColor:
         FacialHairColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value,
-              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
+          SelectItem item =
+              new SelectItem(value, color: ColorMapping(value).getColor());
           itemList.add(item);
         });
         break;
       case Graphic:
         Graphic.values.toList().forEach((value) {
           SelectItem item = new SelectItem(value,
-              "assets/Graphic/" + value.toString().split('.')[1] + ".png");
+              imagePath:
+                  "assets/Graphic/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
@@ -172,17 +185,29 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             margin: EdgeInsets.all(5.0),
             child: Stack(
               children: <Widget>[
-                GridTile(
-                  child: Card(
-                    color: Colors.white30,
-                    child: new Image.asset(
-                      itemList[i].imagePath,
-                      height: 280,
-                      width: 280,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ),
+                itemList[i].imagePath != null
+                    ? GridTile(
+                        child: Card(
+                          color: Colors.white30,
+                          child: new Image.asset(
+                            itemList[i].imagePath,
+                            height: 280,
+                            width: 280,
+                            fit: BoxFit.scaleDown,
+                          ),
+                        ),
+                      )
+                    : GridTile(
+                        child: Card(
+                          color: itemList[i].color,
+                          child: Container(
+                              // child: Align(
+                              //   alignment: Alignment.center,
+                              //   child: Text(itemList[i].type.toString().split('.')[1].toUpperCase()),
+                              // ),
+                              ),
+                        ),
+                      ),
                 _selectedImageIndex == i
                     ? Align(
                         alignment: Alignment.topRight,

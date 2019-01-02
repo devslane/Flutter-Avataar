@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_avataar/avataar_options.dart';
+import 'package:flutter_avataar/avatar/avatar.dart';
+import 'package:flutter_avataar/avatar/enums.dart';
 import 'package:flutter_avataar/custom_check_box.dart';
-import 'package:flutter_avataar/enums.dart';
 import 'package:flutter_avataar/select_item.dart';
 
 class CustomGridBottomSheet extends StatefulWidget {
   CustomGridBottomSheet({this.options, this.type, this.changeCurrentSelected});
-  final AvataarOptions options;
+  final Options options;
   final dynamic type; // LIST OF URLS OF INDIVIDUAL AVATAR STYLE
   final Function changeCurrentSelected;
 
@@ -76,73 +76,85 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
       case Accessories:
         print(AvatarStyle.values.toList());
         Accessories.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Accessories/" + value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/Accessories/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case HairColor:
         HairColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case FacialHair:
         FacialHair.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Cloth:
         Cloth.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/ClotheType/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/ClotheType/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case ClothColor:
         ClothColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Eyes:
         Eyes.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Eyes/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(
+              value, "assets/Eyes/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Eyebrow:
         Eyebrow.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Eyebrow/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/Eyebrow/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Mouth:
         Mouth.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Mouth/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(
+              value, "assets/Mouth/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Skin:
         Skin.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Skin/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(
+              value, "assets/Skin/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case HatColor:
         HatColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case FacialHairColor:
         FacialHairColor.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/FacialHair/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/FacialHair/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;
       case Graphic:
         Graphic.values.toList().forEach((value) {
-          SelectItem item = new SelectItem(value, "assets/Graphic/"+ value.toString().split('.')[1] + ".png");
+          SelectItem item = new SelectItem(value,
+              "assets/Graphic/" + value.toString().split('.')[1] + ".png");
           itemList.add(item);
         });
         break;

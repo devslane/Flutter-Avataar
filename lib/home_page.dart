@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_avataar/avataar_options.dart';
 import 'package:flutter_avataar/avataar_webview.dart';
+import 'package:flutter_avataar/avatar/avatar.dart';
+import 'package:flutter_avataar/avatar/enums.dart';
 import 'package:flutter_avataar/custom_grid_bottom_sheet.dart';
-import 'package:flutter_avataar/enums.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  AvataarOptions options = new AvataarOptions();
+  Options options = new Options();
   List<dynamic> avatarCharacteristics = [
     Top,
     Accessories,
@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
               ),
               new Expanded(
                 child: new Container(
-                  
                   child: new GridView.count(
                       crossAxisCount: 3,
                       childAspectRatio: 1.0,
@@ -94,43 +93,16 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  void _changeCurrentSelected(AvataarOptions value) {
+  void _changeCurrentSelected(Options value) {
     setState(() {
       print('value on changing item');
-      print(value);
+      print(value.accessories);
       this.options = value;
     });
   }
 
-  String _getAvataarUrl(AvataarOptions options) {
-    String urlOptions;
-    urlOptions = 'accessoriesType' +
-        _getOptionString(options.accessories) +
-        'avatarStyle' +
-        _getOptionString(options.avatarStyle) +
-        'clotheColor' +
-        _getOptionString(options.clothColor) +
-        'clotheType' +
-        _getOptionString(options.clothes) +
-        'eyeType' +
-        _getOptionString(options.eyes) +
-        'eyebrowType' +
-        _getOptionString(options.eyebrow) +
-        'facialHairColor' +
-        _getOptionString(options.facialHairColor) +
-        'facialHairType' +
-        _getOptionString(options.facialHair) +
-        'graphicType' +
-        _getOptionString(options.graphic) +
-        'hairColor' +
-        _getOptionString(options.hairColor) +
-        'mouthType' +
-        _getOptionString(options.mouth) +
-        'skinColor' +
-        _getOptionString(options.skin) +
-        'topType' +
-        _getOptionString(options.top);
-    return urlOptions;
+  String _getAvataarUrl(Options options) {
+    return getSvg(options);
   }
 
   String _getOptionString(dynamic innerOption) {

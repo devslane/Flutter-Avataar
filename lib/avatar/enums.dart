@@ -2,6 +2,7 @@ enum AvatarStyle {
   circle,
   transparent,
 }
+
 enum Top {
   nohair,
   eyepatch,
@@ -39,6 +40,7 @@ enum Top {
   shorthairthecaesar,
   shorthairthecaesarsidepart,
 }
+
 enum Accessories {
   blank,
   kurta,
@@ -48,6 +50,7 @@ enum Accessories {
   sunglasses,
   wayfarers,
 }
+
 enum HairColor {
   aurburn,
   black,
@@ -60,6 +63,7 @@ enum HairColor {
   red,
   silverGray
 }
+
 enum HatColor {
   black,
   blue01,
@@ -77,6 +81,7 @@ enum HatColor {
   red,
   white,
 }
+
 enum FacialHair {
   blank,
   beardmedium,
@@ -85,6 +90,7 @@ enum FacialHair {
   moustachefancy,
   moustachemagnum,
 }
+
 enum FacialHairColor {
   auburn,
   black,
@@ -97,6 +103,7 @@ enum FacialHairColor {
   red,
   silverRed
 }
+
 enum Cloth {
   blazerShirt,
   blazerSweater,
@@ -108,6 +115,7 @@ enum Cloth {
   shirtScoopNeck,
   shirtVNeck
 }
+
 enum Eyes {
   close,
   cry,
@@ -122,6 +130,7 @@ enum Eyes {
   wink,
   winkWacky
 }
+
 enum Eyebrow {
   angry,
   angryNatural,
@@ -136,6 +145,7 @@ enum Eyebrow {
   upDown,
   upDownNatural,
 }
+
 enum Mouth {
   concerned,
   none,
@@ -150,8 +160,11 @@ enum Mouth {
   twinkle,
   vomit,
 }
+
 enum Skin { tanned, yellow, pale, light, brown, darkBrown, black }
-// enum Face { mouth, nose, eyes, eyebrow }
+
+enum Face { mouth, nose, eyes, eyebrow }
+
 enum ClothColor {
   black,
   blue1,
@@ -169,6 +182,7 @@ enum ClothColor {
   red,
   white
 }
+
 enum Graphic {
   bat,
   cumbia,

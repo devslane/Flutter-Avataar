@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_avataar/avataar_options.dart';
-import 'package:flutter_avataar/colors.dart';
-import 'package:flutter_avataar/custom_check_box.dart';
-import 'package:flutter_avataar/enums.dart';
-import 'package:flutter_avataar/select_item.dart';
+import 'package:flutter_avataar/avatar/avatar.dart';
+import 'package:flutter_avataar/avatar/enums.dart';
+import 'package:flutter_avataar/models/select_item.dart';
+import 'package:flutter_avataar/utils/colors.dart';
+import 'package:flutter_avataar/utils/custom_ui/custom_check_box.dart';
 
 class CustomGridBottomSheet extends StatefulWidget {
   CustomGridBottomSheet({this.options, this.type, this.changeCurrentSelected});
-  final AvataarOptions options;
+  final Options options;
   final dynamic type; // LIST OF URLS OF INDIVIDUAL AVATAR STYLE
   final Function changeCurrentSelected;
 
@@ -23,39 +23,33 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 310.0,
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(horizontal: 3.0),
       child: new Stack(
         children: <Widget>[
           Card(
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(15.0)),
-            elevation: 24.0,
-            child: new Container(
-              color: Colors.white,
-//              height: 250.0,
-              margin: EdgeInsets.only(top: 30.0),
-              child: new GridView.count(
-                crossAxisCount: 4,
-                children: _getTiles(),
-              ),
+            elevation: 2.0,
+            child: new Column(
+              children: <Widget>[
+                Center(
+                  child: Text(
+                    widget.type.toString(),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+                  ),
+                ),
+                Expanded(
+                  child: new GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 4,
+                    children: _getTiles(),
+                  ),
+                ),
+              ],
             ),
           ),
-          new Align(
-              alignment: Alignment.topRight,
-              child: new Container(
-                margin: EdgeInsets.only(top: 5.0, right: 10.0),
-                child: GestureDetector(
-                  child: new Icon(
-                    Icons.clear,
-                    color: Colors.grey,
-                    size: 30.0,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ))
         ],
       ),
     );
@@ -94,8 +88,10 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
         break;
       case FacialHair:
         FacialHair.values.toList().forEach((value) {
-          SelectItem item =
-              new SelectItem(value, color: ColorMapping(value).getColor());
+          SelectItem item = new SelectItem(value,
+              imagePath: "assets/FacialHair/" +
+                  value.toString().split('.')[1] +
+                  ".png");
           itemList.add(item);
         });
         break;
@@ -183,28 +179,29 @@ class _CustomGridBottomSheetState extends State<CustomGridBottomSheet> {
             margin: EdgeInsets.all(5.0),
             child: Stack(
               children: <Widget>[
-                itemList[i].imagePath != null?
-                GridTile(
-                  child: Card(
-                    color: Colors.white30,
-                    child: new Image.asset(
-                      itemList[i].imagePath,
-                      height: 280,
-                      width: 280,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ):GridTile(
-                  child: Card(
-                    color: itemList[i].color,
-                    child: Container(
-                      // child: Align(
-                      //   alignment: Alignment.center,
-                      //   child: Text(itemList[i].type.toString().split('.')[1].toUpperCase()),
-                      // ),
-                    ),
-                  ),
-                ),
+                itemList[i].imagePath != null
+                    ? GridTile(
+                        child: Card(
+                          color: Colors.white30,
+                          child: new Image.asset(
+                            itemList[i].imagePath,
+                            height: 280,
+                            width: 280,
+                            fit: BoxFit.scaleDown,
+                          ),
+                        ),
+                      )
+                    : GridTile(
+                        child: Card(
+                          color: itemList[i].color,
+                          child: Container(
+                              // child: Align(
+                              //   alignment: Alignment.center,
+                              //   child: Text(itemList[i].type.toString().split('.')[1].toUpperCase()),
+                              // ),
+                              ),
+                        ),
+                      ),
                 _selectedImageIndex == i
                     ? Align(
                         alignment: Alignment.topRight,

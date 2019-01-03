@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Avataar",
       theme: ThemeData(
         primaryColor: Colors.blue,
         accentColor: Colors.blueAccent.withOpacity(.65),

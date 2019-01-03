@@ -14,27 +14,30 @@ class _HomePageState extends State<HomePage> {
   Options options = new Options();
   PageController pageController = new PageController(viewportFraction: 1.0);
   int _preSelectedIndex = 0;
-
   List<dynamic> avatarCharacteristics = [
     Top,
     Accessories,
+    HatColor,
     HairColor,
     FacialHair,
+    FacialHairColor,
     Cloth,
     ClothColor,
+    Graphic,
     Eyes,
     Eyebrow,
     Mouth,
     Skin,
-    HatColor,
-    FacialHairColor,
-    Graphic,
     // Face,
   ];
+  List<dynamic> visibleAvatarCharacteristics = new List();
 
   @override
   Widget build(BuildContext context) {
     print('build called');
+    visibleAvatarCharacteristics = [];
+    _updateVisibleCharacteristics();
+    print(MediaQuery.of(context).size.height);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -52,13 +55,13 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             color: Colors.white,
-            height: 290.0,
+            height: MediaQuery.of(context).size.height / 2.42,
             width: MediaQuery.of(context).size.width,
             child: Center(
               child: PageView.builder(
                 controller: pageController,
                 physics: BouncingScrollPhysics(),
-                itemCount: avatarCharacteristics.length,
+                itemCount: visibleAvatarCharacteristics.length,
                 scrollDirection: Axis.horizontal,
                 onPageChanged: (int index) {
                   _changeCurrentPageIndex(index);
@@ -67,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   return Container(
                     child: CustomGridBottomSheet(
                       options: options,
-                      type: avatarCharacteristics[index],
+                      type: visibleAvatarCharacteristics[index],
                       changeCurrentSelected: _changeCurrentSelected,
                     ),
                   );
@@ -76,7 +79,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: CustomPageViewBar(avatarCharacteristics,
+            child: CustomPageViewBar(visibleAvatarCharacteristics,
                 showOnePageView: _navigateToPage,
                 preSelectedIndex: _preSelectedIndex),
           )
@@ -86,29 +89,43 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _changeCurrentPageIndex(int index) {
+  void _updateVisibleCharacteristics() {
+    avatarCharacteristics.forEach((value) {
+      visibleAvatarCharacteristics.add(value);
+    });
+
+    if (options.top == Top.eyepatch) {
+//      options.accessories = Accessories.blank;
+      visibleAvatarCharacteristics.remove(Accessories);
+    }
+    if ((options.top == Top.nohair)||(options.top == Top.eyepatch) || (options.top == Top.hat) ||(options.top == Top.hijab)||(options.top == Top.turban)||(options.top == Top.winterhat1)||(options.top == Top.winterhat2)||(options.top == Top.winterhat3)||(options.top == Top.winterhat4)) {
+      visibleAvatarCharacteristics.remove(HairColor);
+    }
+    if (!((options.top == Top.hijab) || (options.top == Top.turban)||(options.top == Top.winterhat1)||(options.top == Top.winterhat2)||(options.top == Top.winterhat3)||(options.top == Top.winterhat4))) {
+      visibleAvatarCharacteristics.remove(HatColor);
+    }
+    if (options.facialHair == FacialHair.blank) {
+      visibleAvatarCharacteristics.remove(FacialHairColor);
+    }
+    if (options.clothes != Cloth.graphicShirt) {
+      visibleAvatarCharacteristics.remove(Graphic);
+    }
+    if (options.clothes == Cloth.blazerShirt || options.clothes == Cloth.blazerSweater) {
+      visibleAvatarCharacteristics.remove(ClothColor);
+    }
+  }
+
+  void _changeCurrentPageIndex(int index) {
     setState(() {
       _preSelectedIndex = index;
     });
   }
 
-  _navigateToPage(int index) {
+  void _navigateToPage(int index) {
     pageController.jumpToPage(index);
     setState(() {
       _preSelectedIndex = index;
     });
-  }
-
-  void _showModalBottomSheet(BuildContext context, dynamic tabSelected) {
-    showBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return CustomGridBottomSheet(
-            options: options,
-            type: tabSelected,
-            changeCurrentSelected: _changeCurrentSelected,
-          );
-        });
   }
 
   void _changeCurrentSelected(Options value) {

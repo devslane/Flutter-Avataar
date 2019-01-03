@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             color: Colors.white,
-            height: 340.0,
+            height: 290.0,
             width: MediaQuery.of(context).size.width,
             child: Center(
               child: PageView.builder(

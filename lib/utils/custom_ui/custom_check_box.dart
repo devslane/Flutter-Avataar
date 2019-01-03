@@ -13,8 +13,8 @@ class CustomCheckBox extends StatelessWidget {
         size: 16.0,
       ),
       decoration: BoxDecoration(
-          color: Colors.green,
-          border: Border.all(color: Colors.green, width: 2.0)),
+          color: Theme.of(context).primaryColor,
+          border: Border.all(color: Theme.of(context).primaryColor, width: 2.0)),
     );
   }
 

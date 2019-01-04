@@ -30,18 +30,6 @@ class _CustomPageViewBarState extends State<CustomPageViewBar> {
       controller.animateTo(30.0 * selectedIndex,
           duration: Duration(milliseconds: 200), curve: Curves.easeIn);
     }
-
-//    if (controller.hasClients) {
-//      if (selectedIndex > 5) {
-//        print(selectedIndex);
-//        controller.animateTo(controller.position.maxScrollExtent,
-//            duration: Duration(milliseconds: 600), curve: Curves.easeIn);
-//      }
-//      if (selectedIndex < 6) {
-//        controller.animateTo(controller.position.minScrollExtent,
-//            duration: Duration(milliseconds: 600), curve: Curves.easeIn);
-//      }
-//    }
     return Container(
       margin: EdgeInsets.only(bottom: 5.0),
       child: ListView.builder(

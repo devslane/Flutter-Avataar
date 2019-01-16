@@ -1,5 +1,5 @@
 import '../enums.dart';
-import 'package:flutter_avataar/avatar/methods/colors.dart';
+import 'colors.dart';
 
 String getClothSvg(Cloth cloth, ClothColor color, Graphic graphic) {
   switch (cloth) {

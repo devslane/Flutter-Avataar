@@ -16,9 +16,9 @@ class _HomePageState extends State<HomePage> {
   int _preSelectedIndex = 0;
   List<dynamic> avatarCharacteristics = [
     Top,
-    Accessories,
     HatColor,
     HairColor,
+    Accessories,
     FacialHair,
     FacialHairColor,
     Cloth,
@@ -50,12 +50,12 @@ class _HomePageState extends State<HomePage> {
         child: Column(children: <Widget>[
           new Container(
             height: MediaQuery.of(context).size.height / 2.5,
-            margin: EdgeInsets.only(bottom: 8.0),
+            margin: EdgeInsets.only(bottom: 2.0),
             child: new Avataarview(_getAvataarUrl(options)),
           ),
           Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.height / 2.42,
+            height: MediaQuery.of(context).size.height / 2.6,
             width: MediaQuery.of(context).size.width,
             child: Center(
               child: PageView.builder(

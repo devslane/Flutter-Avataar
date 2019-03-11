@@ -46,15 +46,13 @@ class _CustomPageViewBarState extends State<CustomPageViewBar> {
               onTabChange(i);
             },
             child: selectedIndex == i
-                ? new SizedBox(
+                ? new InkWell(
                     child: Container(
-                        alignment: Alignment.center,
                         child: _getIconData(widget.typeList[i], context,
                             selected: true)),
                   )
                 : new InkWell(
                     child: Container(
-                        alignment: Alignment.center,
                         child: _getIconData(widget.typeList[i], context)),
                   ),
           );
